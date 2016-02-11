@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			}
 			else{
 				alert("Winner is player 1!");
+				document.removeEventListener("keyup",keyStroke,false); //removes the event listener once the game is over
 			}
 		} 
 		else if (e.keyCode === 68){ //68 is the letter d
@@ -24,6 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			}
 			else{
 				alert("Winner is player 2!");
+				document.removeEventListener("keyup",keyStroke,false); //removes the event listener once the game is over
 			}
 		}
 		
