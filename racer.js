@@ -1,35 +1,60 @@
 document.addEventListener('DOMContentLoaded', function() {
-  //run the code
 
+  var trackLength = 10; //10 by default
+  var player1 = document.getElementById("#player1_strip");
+  var player2 = document.getElementById("#player2_strip");
+  var p1Score = 0; 
+  var p2Score = 0;
+  
+  //var raceTable = document.getElementById("racer_table");
+  document.addEventListener("keyup",keyStroke,false); //tracks key strokes
 
-	function move = function(player){
-		/*
-		psuedo code:
-		
-		if Keypressed = "E"
-		then move first car forward
-		else d move second car forward
-		
-		if player1 has moved to the end
-		then end the game
-		
-		else for player 2
-		
-		set a var to add up the total moves, user can then easily adapted the length of the road and have it match
-		the var total. 
-		*/
-	}
-
-	function keyPress = function(e){
-		if (e.charCode == "e"){
-			//move player one
+	function keyStroke(e){
+		if (e.keyCode === 69){ //69 is the letter e
+			if(p1Score < trackLength){
+			move(player1); //calls function to move player
+			}
+			else{
+				alert("Winner is player 1!");
+			}
 		} 
-		else if (e.charCode == "d"){
-			//move player 2
+		else if (e.keyCode === 68){ //68 is the letter d
+			if(p2Score < trackLength){
+			move(player2);
+			}
+			else{
+				alert("Winner is player 2!");
+			}
 		}
+		
 		else{
-			alert("Invalid key stroke");
+			alert("Invalid key stroke " + e.keyCode);
 		}
 	}
 	
+	function setLengthTrack(){
+		
+	}
+	
+	function move(player){
+		
+		var a = $(player).children(".active");
+        a.nextElementSibling().addClass("active");
+        a.removeClass("active");
+		
+		/*
+		player.nextSibling = player;
+		player.removeClass("active");
+		player = play.nextSibling;
+		*/
+		
+	}
+	
+	function newGame(){
+		window.location.href("main.html"); //resets the page 
+	}
+		
+
 })
+
+
