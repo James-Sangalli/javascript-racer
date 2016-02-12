@@ -41,13 +41,13 @@ document.addEventListener('DOMContentLoaded', function() {
 	}
 	
 	function setLengthTrack(){
-		trackLength = parseInt(prompt("Please choose the length of the track, between 5-30"));
+		trackLength = parseInt(prompt("Please choose the length of the track, between 5-15"));
 
 		if (trackLength < 5){
 			trackLength === 5;
 		}
-		else if (trackLength > 30){
-			trackLength ===30;
+		else if (trackLength > 15){
+			trackLength === 15;
 		}
 
 		// for(i = 0; i < trackLength.length; i ++){
