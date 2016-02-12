@@ -1,8 +1,10 @@
 document.addEventListener('DOMContentLoaded', function() {
 
   var trackLength = 10; //10 by default
-  var player1 = document.getElementById("#player1_strip");
-  var player2 = document.getElementById("#player2_strip");
+  var p1 = "#player1_strip";
+  var p2 = "#player2_strip";
+  // var player1 = document.querySelectorAll("#player1_strip");
+  // var player2 = document.querySelectorAll("#player2_strip");
   var p1Score = 0; 
   var p2Score = 0;
   
@@ -12,7 +14,8 @@ document.addEventListener('DOMContentLoaded', function() {
 	function keyStroke(e){
 		if (e.keyCode === 69){ //69 is the letter e
 			if(p1Score < trackLength){
-			move(player1); //calls function to move player
+			move(p1); //calls function to move player
+			p1Score ++;
 			}
 			else{
 				alert("Winner is player 1!");
@@ -21,7 +24,8 @@ document.addEventListener('DOMContentLoaded', function() {
 		} 
 		else if (e.keyCode === 68){ //68 is the letter d
 			if(p2Score < trackLength){
-			move(player2);
+			move(p2);
+			p2Score ++;
 			}
 			else{
 				alert("Winner is player 2!");
@@ -35,21 +39,17 @@ document.addEventListener('DOMContentLoaded', function() {
 	}
 	
 	function setLengthTrack(){
-		
+		trackLength = prompt("Please choose the length of the track from 10-20");
 	}
 	
 	function move(player){
 		
-		var a = $(player).children(".active");
-        a.nextElementSibling().addClass("active");
-        a.removeClass("active");
-		
-		/*
-		player.nextSibling = player;
-		player.removeClass("active");
-		player = play.nextSibling;
-		*/
-		
+		var move = document.querySelector(player + " .active");
+
+		move.classList.remove("active");
+		move = move.nextElementSibling;
+		move.classList.add("active");
+
 	}
 	
 	function newGame(){
@@ -58,5 +58,3 @@ document.addEventListener('DOMContentLoaded', function() {
 		
 
 })
-
-
