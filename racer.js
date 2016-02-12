@@ -41,6 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	}
 	
 	function setLengthTrack(){
+		
 		trackLength = parseInt(prompt("Please choose the length of the track, between 5-15"));
 
 		if (trackLength < 5){
@@ -51,8 +52,8 @@ document.addEventListener('DOMContentLoaded', function() {
 		}
 
 		// for(i = 0; i < trackLength.length; i ++){
-		// 	trackLength[i] = document.createElement(p1 + "td");
-		// 	trackLength[i] = document.createElement(p2 + "td");
+		// 	$(p1) = append(p1 + "td");
+		// 	$(p1) = append(p2 + "td");
 		// }
 	}
 	
