@@ -1,10 +1,10 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-  var trackLength = 0; //10 by default
   var p1 = "#player1_strip";
   var p2 = "#player2_strip";
   var p1Score = 0; 
   var p2Score = 0;
+  var trackLength = 0;
 
   setLengthTrack();
   
@@ -34,27 +34,21 @@ document.addEventListener('DOMContentLoaded', function() {
 				newGame();
 			}
 		}
-		
-		else{
-			alert("Invalid key stroke " + e.keyCode);
-		}
 	}
 	
 	function setLengthTrack(){
 		
-		trackLength = parseInt(prompt("Please choose the length of the track, between 5-15"));
+		trackLength = prompt("Please choose the length of the track, between 5-15");
 
-		if (trackLength < 5){
-			trackLength === 5;
+		if (trackLength > 15){
+			trackLength = 15;
 		}
-		else if (trackLength > 15){
-			trackLength === 15;
+		else if (trackLength < 5){
+			trackLength = 5;
 		}
-
-		// for(i = 0; i < trackLength.length; i ++){
-		// 	$(p1) = append(p1 + "td");
-		// 	$(p1) = append(p2 + "td");
-		// }
+		else{
+			trackLength = 10; //10 is default
+		}
 	}
 	
 	function move(player){
@@ -68,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	}
 	
 	function newGame(){
-		location.reload();; //resets the page 
+		location.reload(); //resets the page 
 	}
 		
 
