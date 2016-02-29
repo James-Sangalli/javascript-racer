@@ -25,9 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
   document.addEventListener("keyup",keyStroke,false); //tracks key strokes
 
 	function keyStroke(e){
-
-		randomObstacle(); //calls this to envoke a random issue along the way
-
+		
 		console.log(e.keyCode);
 
 		if (boost === false){
@@ -43,6 +41,8 @@ document.addEventListener('DOMContentLoaded', function() {
 				p2Score += 2;
 				boost = true;
 			}
+
+			randomObstacle(); //calls this, if collision occurs then the game will stop
 		}
 
 		if (e.keyCode === 69){ //69 is the letter e
