@@ -7,6 +7,26 @@
   background-color: black;
 }
 
+#player1_strip td.active {
+	background-image: url("tesla.png");
+	max-width: 100%;
+	max-height: 100%;
+}
+
+#player2_strip td.active{
+	background-image: url("ford.png");
+	max-width: 100%;
+	max-height: 100%;
+}
+
+h1 {
+	font-family: 'Carter One', cursive;
+}
+
+h2 {
+	color: yellow;
+}
+
 /*
 div#wrapperHeader {
  width:35%;

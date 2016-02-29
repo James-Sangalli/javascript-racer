@@ -29,8 +29,8 @@ document.addEventListener('DOMContentLoaded', function() {
   document.addEventListener("keyup",keyStroke,false); //tracks key strokes
 
 	function keyStroke(e){
-		
-		console.log(e.keyCode);
+
+		randomObstacle(e.keyCode); //calls this, if collision occurs then the game will stop
 
 		if (boost === false){
 			if (e.keyCode === 88){
@@ -50,7 +50,6 @@ document.addEventListener('DOMContentLoaded', function() {
 		}
 
 		if (e.keyCode === 69){ //69 is the letter e
-			randomObstacle(e.keyCode); //calls this, if collision occurs then the game will stop
 			if(p1Score < trackLength){
 			move(p1); //calls function to move player
 			p1Score ++;
@@ -63,7 +62,6 @@ document.addEventListener('DOMContentLoaded', function() {
 			}
 		} 
 		else if (e.keyCode === 68){ //68 is the letter d
-			randomObstacle(e.keyCode); //calls this, if collision occurs then the game will stop
 			if(p2Score < trackLength){
 			move(p2);
 			p2Score ++;
