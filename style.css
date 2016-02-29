@@ -7,9 +7,10 @@
   background-color: black;
 }
 
+/*
 div#wrapperHeader {
  width:35%;
- height: 50px; /* height of the background image? */
+ height: 50px; 
  background:url(teslaVsFord.png) repeat-x 0 0;
  text-align:center;
 }
@@ -21,9 +22,20 @@ div#wrapperHeader div#header {
 }
 
 div#wrapperHeader div#header img {
- width: 200px; /* the width of the logo image */
- height: 100px; /* the height of the logo image */
+ width: 200px; 
+ height: 100px; 
  margin:0 auto;
 }
+
+*/
+
+html { 
+  background: url(background.png) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 
 
