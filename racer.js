@@ -9,6 +9,8 @@ document.addEventListener('DOMContentLoaded', function() {
 	Include a ford and tesla model S car as players
 
 	Perhaps add something like first player to press X gets a head start
+
+	Perhaps add a random problem? 
 	*/
   var p1 = "#player1_strip";
   var p2 = "#player2_strip";
@@ -23,6 +25,8 @@ document.addEventListener('DOMContentLoaded', function() {
   document.addEventListener("keyup",keyStroke,false); //tracks key strokes
 
 	function keyStroke(e){
+
+		randomObstacle(); //calls this to envoke a random issue along the way
 
 		console.log(e.keyCode);
 
@@ -77,6 +81,19 @@ document.addEventListener('DOMContentLoaded', function() {
 		}
 		else{
 			trackLength = 10; //10 is default
+		}
+	}
+
+	function randomObstacle(){
+		var obstaclePlace = Math.floor(Math.random() *trackLength);
+
+		if (obstaclePlace === p1Score){
+			alert("Oh NO! Your tesla Caught fire! You lose!");
+			newGame();
+		}
+		if (obstaclePlace === p2Score){
+			alert("Looks like ford really does == Fix Or Repair Daily, your engine has blown and you lose the race!");
+			newGame();
 		}
 	}
 	
