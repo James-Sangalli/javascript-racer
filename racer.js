@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var p1Score = 0; 
   var p2Score = 0;
   var trackLength = 0;
+  var snd = new Audio("Skid.mp3"); //plays skid noise when user gets a boost
 
   var boost = false; //if player 1 presses x or player 2 presses y they get a 2 step headstart, can only be used once
 
@@ -36,12 +37,14 @@ document.addEventListener('DOMContentLoaded', function() {
 				move(p1);
 				p1Score += 2;
 				boost = true;
+				snd.play(); //plays skid noise
 			}
 			else if (e.keyCode === 89){
 				move(p2);
 				move(p2);
 				p2Score += 2;
 				boost = true;
+				snd.play();
 			}
 		}
 
@@ -85,16 +88,21 @@ document.addEventListener('DOMContentLoaded', function() {
 	}
 
 	function randomObstacle(){
+
 		var obstaclePlace = Math.floor(Math.random() *trackLength);
 
 		if (obstaclePlace === p1Score){
 			alert("Oh NO! Your tesla Caught fire! You lose!");
 			newGame();
 		}
+		
+
 		if (obstaclePlace === p2Score){
 			alert("Looks like ford really does == Fix Or Repair Daily, your engine has blown and you lose the race!");
 			newGame();
 		}
+		
+		
 	}
 	
 	function move(player){
