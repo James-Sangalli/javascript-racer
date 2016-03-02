@@ -89,10 +89,10 @@ document.addEventListener('DOMContentLoaded', function() {
 			trackLength = 10; //10 is default
 		}
 
-		// for (var i = 0; i < trackLength; i++){
-		// 	$("#player1_strip").append("<td>");
-		// 	$("#player2_strip").append("<td>");
-		// }
+		for (var i = 0; i < trackLength; i++){
+			$("#player1_strip").append("<td>");
+			$("#player2_strip").append("<td>");
+		}
 	}
 
 	function randomObstacle(key){
