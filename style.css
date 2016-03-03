@@ -9,14 +9,12 @@
 
 #player1_strip td.active {
 	background: url(tesla.png) no-repeat;
-	/*background-size: 100% 50px;*/
 	background-size: contain;
 }
 
 #player2_strip td.active{
 
 	background: url(ford.png) center no-repeat;
-	/*background-size: 100% 50px;*/
 	background-size: contain;
 }
 
@@ -28,27 +26,9 @@ h2 {
 	color: yellow;
 }
 
-/*
-div#wrapperHeader {
- width:35%;
- height: 50px; 
- background:url(teslaVsFord.png) repeat-x 0 0;
- text-align:center;
+.obstacle{
+	background-color: black;
 }
-
-div#wrapperHeader div#header {
- width:200px;
- height:100px;
- margin:0 auto;
-}
-
-div#wrapperHeader div#header img {
- width: 200px; 
- height: 100px; 
- margin:0 auto;
-}
-
-*/
 
 html { 
   background: url(background.jpg) no-repeat center center fixed; 
