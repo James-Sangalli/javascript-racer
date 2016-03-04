@@ -3,12 +3,17 @@
   width: 50px;
 }
 
+.obstacle{
+    background: url(ramp.png) no-repeat;
+    background-size: contain;
+}
+
 .racer_table td.active {
   background-color: black;
 }
 
 #player1_strip td.active {
-	background: url(tesla.png) no-repeat;
+	background: url(tesla.png) center no-repeat;
 	background-size: contain;
 }
 
@@ -26,9 +31,6 @@ h2 {
 	color: yellow;
 }
 
-.obstacle{
-	background-color: black;
-}
 
 html { 
   background: url(background.jpg) no-repeat center center fixed; 

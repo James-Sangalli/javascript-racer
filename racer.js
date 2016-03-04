@@ -1,17 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-//psuedo code:
-/*
-To improve this code I could include a gauntlet of some kind that if comes into contact with the car will cause it to go back a few steps
-
-Perhaps add a maze? To do this I would need to add td elements in multiple directions
-
-Include a ford and tesla model S car as players
-
-Perhaps add something like first player to press X gets a head start
-
-Perhaps add a random problem? 
-*/
   var p1 = "#player1_strip";
   var p2 = "#player2_strip";
   var p1Score = 0; 
@@ -22,6 +10,7 @@ Perhaps add a random problem?
   var snd = new Audio("Skid.mp3"); //plays skid noise when user gets a boost
   var boom = new Audio("boom.mp3"); //plays boom sound when car blows
   var endingCheer = new Audio("Applause.mp3"); //ending cheer sound effect when a player wins
+  var rampCrash = new Audio("crash.mp3");
 
   var boost = 0; //if player 1 presses x or player 2 presses y they get a 2 step headstart, can only be used once
 
@@ -32,22 +21,26 @@ Perhaps add a random problem?
 	function keyStroke(e){
 
 		if (boost < 3){
-			obstacleApplies = false;
+			
 			if (e.keyCode === 88){
+				obstacleApplies = false;
 				move(p1,1); //DRY!
-				move(p1,1); //parses 3 so it is exempt from obstacle
+				move(p1,1); 
 				p1Score += 2;
 				snd.play(); //plays skid noise	
 				randomExplosion(); //calls this, if explosion occurs then the game will stop
+				boost++;
 			}
 			else if (e.keyCode === 89){
+				obstacleApplies = false;
 				move(p2,2);
 				move(p2,2);
 				p2Score += 2;
 				snd.play();
 				randomExplosion(); //calls this, if explosion occurs then the game will stop
+				boost++;
 			}
-			boost++;
+			
 			
 		}
 
@@ -74,6 +67,8 @@ Perhaps add a random problem?
 	}
 
 	function obstacleHit(playerNum){
+		rampCrash.play();
+
 		if(playerNum == 1){
 			alert("Tesla hit the obstacle! You lose!");
 		}
@@ -118,7 +113,7 @@ Perhaps add a random problem?
 			newGame();
 		}
 
-		if (explosion == p2Score){
+		else if (explosion == p2Score){
 			boom.play();
 			alert("Looks like ford really does == Fix Or Repair Daily, your engine has blown and you lose the race!");
 			newGame();
@@ -148,3 +143,16 @@ Perhaps add a random problem?
 	}		
 
 })
+
+//psuedo code:
+/*
+To improve this code I could include a gauntlet of some kind that if comes into contact with the car will cause it to go back a few steps
+
+Perhaps add a maze? To do this I would need to add td elements in multiple directions
+
+Include a ford and tesla model S car as players
+
+Perhaps add something like first player to press X gets a head start
+
+Perhaps add a random problem? 
+*/
