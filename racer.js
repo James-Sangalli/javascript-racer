@@ -123,15 +123,15 @@ document.addEventListener('DOMContentLoaded', function() {
 	
 	function move(player ,playerNumber){
 		
-		var obs = document.querySelector("#player" + playerNumber + "_strip .obstacle");
-		var pos = document.querySelector("#player" + playerNumber + "_strip .active");
-
 		var move = document.querySelector(player + " .active");
 		move.classList.remove("active");
 		move = move.nextElementSibling;
 		move.classList.add("active");
 
-		if(obs == pos && obstacleApplies){
+		var rampPosition = document.querySelector("#player" + playerNumber + "_strip .obstacle");
+		var carPosition = document.querySelector("#player" + playerNumber + "_strip .active");
+
+		if(rampPosition == carPosition && obstacleApplies){
 			obstacleHit(playerNumber);
 			newGame();
 		}
