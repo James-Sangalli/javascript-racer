@@ -70,10 +70,10 @@ document.addEventListener('DOMContentLoaded', function() {
 		rampCrash.play();
 
 		if(playerNum == 1){
-			alert("Tesla hit the obstacle! You lose!");
+			alert("Tesla has hit the ramp! Race over!");
 		}
 		else{
-			alert("Ford hit, you lose!");
+			alert("Ford has hit the ramp! Race over!");
 		}
 	}
 	
@@ -143,16 +143,3 @@ document.addEventListener('DOMContentLoaded', function() {
 	}		
 
 })
-
-//psuedo code:
-/*
-To improve this code I could include a gauntlet of some kind that if comes into contact with the car will cause it to go back a few steps
-
-Perhaps add a maze? To do this I would need to add td elements in multiple directions
-
-Include a ford and tesla model S car as players
-
-Perhaps add something like first player to press X gets a head start
-
-Perhaps add a random problem? 
-*/
