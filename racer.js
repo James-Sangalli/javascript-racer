@@ -12,57 +12,58 @@ document.addEventListener('DOMContentLoaded', function() {
   var endingCheer = new Audio("Applause.mp3"); //ending cheer sound effect when a player wins
   var rampCrash = new Audio("crash.mp3");
 
-  var boost = 0; //if player 1 presses x or player 2 presses y they get a 2 step headstart, can only be used once
+  var boostTesla = true; //Boost can only be used once, can be used to jump ramp
+  var boostFord = true;
 
   setLengthTrack();
   
   document.addEventListener("keyup",keyStroke,false); //tracks key strokes
 
-	function keyStroke(e){
+  function boostCar(player,playerNumber,score){
 
-		if (boost < 3){
-			
-			if (e.keyCode === 88){
-				obstacleApplies = false;
-				move(p1,1); //DRY!
-				move(p1,1); 
-				p1Score += 2;
-				snd.play(); //plays skid noise	
-				randomExplosion(); //calls this, if explosion occurs then the game will stop
-				boost++;
-			}
-			else if (e.keyCode === 89){
-				obstacleApplies = false;
-				move(p2,2);
-				move(p2,2);
-				p2Score += 2;
-				snd.play();
-				randomExplosion(); //calls this, if explosion occurs then the game will stop
-				boost++;
-			}
-			
-			
+  	obstacleApplies = false;
+  	move(player,playerNumber);
+  	move(player,playerNumber);
+  	score += 2;
+  	snd.play();
+  	randomExplosion();
+
+  }
+
+  function moveCar(player,playerNumber,score){
+
+  	obstacleApplies = true;
+
+  	if (score < trackLength){
+  		move(player,playerNumber);
+  	}
+    else if(score >= trackLength){
+  		winner(playerNumber);
+  	}
+
+  }
+
+	function keyStroke(e){
+		console.log(p1Score);
+
+		if (boostTesla === true && e.keyCode === 88){
+			boostCar(p1,1,p1Score);
+			boostTesla = false;
+		}
+
+		if (boostFord === true && e.keyCode === 89){
+			boostCar(p2,2,p2Score);
+			boostFord = false;
 		}
 
 		if (e.keyCode === 69){ //69 is the letter e
-			if(p1Score < trackLength){
-			move(p1,1); //calls function to move player
-			p1Score ++;
-			obstacleApplies = true;
-			}
-			else if (p1Score >= trackLength){
-				winner(1);
-			}
+			p1Score++;
+			moveCar(p1,1,p1Score);
+			
 		} 
 		else if (e.keyCode === 68){ //68 is the letter d
-			if(p2Score < trackLength){
-			move(p2,2);
-			p2Score ++;
-			obstacleApplies = true;
-			}
-			else if (p2Score >=trackLength){
-				winner(2);
-			}
+	 		p2Score++;
+	 		moveCar(p2,2,p2Score);
 		}
 	}
 
@@ -121,17 +122,17 @@ document.addEventListener('DOMContentLoaded', function() {
 		
 	}
 	
-	function move(player , playerNumber){
+	function move(player ,playerNumber){
 		
-		var obs = document.querySelector("#player" + playerNumber + "_strip .obstacle");
-		var pos = document.querySelector("#player" + playerNumber + "_strip .active");
-
 		var move = document.querySelector(player + " .active");
 		move.classList.remove("active");
 		move = move.nextElementSibling;
 		move.classList.add("active");
 
-		if(obs == pos && obstacleApplies){
+		var rampPosition = document.querySelector("#player" + playerNumber + "_strip .obstacle");
+		var carPosition = document.querySelector("#player" + playerNumber + "_strip .active");
+
+		if(rampPosition == carPosition && obstacleApplies){
 			obstacleHit(playerNumber);
 			newGame();
 		}
