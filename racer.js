@@ -19,14 +19,13 @@ document.addEventListener('DOMContentLoaded', function() {
   
   document.addEventListener("keyup",keyStroke,false); //tracks key strokes
 
-  function boostCar(player,playerNumber,score, model){
+  function boostCar(player,playerNumber,score){
 
   	obstacleApplies = false;
   	move(player,playerNumber);
   	move(player,playerNumber);
   	score += 2;
   	snd.play();
-  	model = false;
   	randomExplosion();
 
   }
@@ -48,11 +47,13 @@ document.addEventListener('DOMContentLoaded', function() {
 		console.log(p1Score);
 
 		if (boostTesla === true && e.keyCode === 88){
-			boostCar(p1,1,p1Score,boostTesla);
+			boostCar(p1,1,p1Score);
+			boostTesla = false;
 		}
 
 		if (boostFord === true && e.keyCode === 89){
-			boostCar(p2,2,p2Score,boostFord);
+			boostCar(p2,2,p2Score);
+			boostFord = false;
 		}
 
 		if (e.keyCode === 69){ //69 is the letter e
